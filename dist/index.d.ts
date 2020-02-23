@@ -1,6 +1,6 @@
 import React from "react";
 
-declare type useCheckboxType = (props: {
+declare type useCheckboxType = (options: {
   state: boolean;
   disabled?: boolean;
   id?: string;
@@ -16,13 +16,13 @@ declare type useCheckboxType = (props: {
 
 export declare const useCheckbox: useCheckboxType;
 
-declare type useRadioType = (props: {
+declare type useRadioType = (options: {
   state: string;
   name?: string;
 }) => {
   value: string;
   name: string | undefined;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement> | string) => void;
 };
 
 export declare const useRadio: useRadioType;
@@ -36,7 +36,7 @@ declare type RadioGroupProps = {
 
 export declare const RadioGroup: (props: RadioGroupProps) => any;
 
-declare type useSelectType = (props: {
+declare type useSelectType = (options: {
   state: string;
   id?: string;
   name?: string;
@@ -46,12 +46,12 @@ declare type useSelectType = (props: {
   name: string | undefined;
   disabled: boolean;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement> | string) => void;
 };
 
 export declare const useSelect: useSelectType;
 
-declare type useTextInputType = (props: {
+declare type useTextInputType = (options: {
   state: string;
   type?: string;
   disabled?: boolean;
@@ -65,7 +65,7 @@ declare type useTextInputType = (props: {
   placeholder: string | undefined;
   disabled: boolean;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement> | string) => void;
 };
 
 export declare const useTextInput: useTextInputType;

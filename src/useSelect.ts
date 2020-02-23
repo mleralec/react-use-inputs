@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type useSelectType = (props: {
+type useSelectType = (options: {
   state: string;
   id?: string;
   name?: string;
@@ -10,14 +10,18 @@ type useSelectType = (props: {
   name: string | undefined;
   disabled: boolean;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement> | string) => void;
 };
 
 const useSelect: useSelectType = ({ state, id, name, disabled = false }) => {
   const [selected, setSelected] = useState(state);
 
-  const onChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelected(event.target.value);
+  const onChange = (event: React.ChangeEvent<HTMLSelectElement> | string) => {
+    if (typeof event === "string") {
+      setSelected(event);
+    } else {
+      setSelected(event.target.value);
+    }
   };
 
   return {

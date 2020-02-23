@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type useCheckboxType = (props: {
+type useCheckboxType = (options: {
   state: boolean;
   disabled?: boolean;
   id?: string;

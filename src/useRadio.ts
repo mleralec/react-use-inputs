@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 
-type useRadioType = (props: {
+type useRadioType = (options: {
   state: string;
   name: string;
 }) => {
   value: string;
   name: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement> | string) => void;
 };
 
 const useRadio: useRadioType = ({ state, name }) => {
   const [selected, setSelected] = useState(state);
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelected(event.target.value);
+  const onChange = (event: React.ChangeEvent<HTMLInputElement> | string) => {
+    if (typeof event === "string") {
+      setSelected(event);
+    } else {
+      setSelected(event.target.value);
+    }
   };
 
   return {

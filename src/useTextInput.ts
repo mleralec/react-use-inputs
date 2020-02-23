@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-type useTextInputType = (props: {
+type useTextInputType = (options: {
   state: string;
   type?: string;
   disabled?: boolean;
@@ -14,7 +14,7 @@ type useTextInputType = (props: {
   placeholder: string | undefined;
   disabled: boolean;
   value: string;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement> | string) => void;
 };
 
 const useTextInput: useTextInputType = ({
@@ -27,8 +27,13 @@ const useTextInput: useTextInputType = ({
 }) => {
   const [value, setValue] = useState(state);
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setValue(event.target.value);
+  const onChange = (event: React.ChangeEvent<HTMLInputElement> | string) => {
+    if (typeof event === "string") {
+      setValue(event);
+    } else {
+      setValue(event.target.value);
+    }
+  };
 
   return {
     type,
