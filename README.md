@@ -12,21 +12,12 @@ npm i react-use-inputs
 
 ---
 
-## Import
-
-```js
-import {
-  useCheckbox,
-  useRadio,
-  RadioGroup,
-  useSelect,
-  useTextInput
-} from "react-use-inputs";
-```
-
----
-
 ## Usage
+
+- [useCheckbox](#useCheckbox)
+- [useRadio](#useRadio)
+- [useSelect](#useSelect)
+- [useTextInput](#useTextInput)
 
 ### useCheckbox
 
