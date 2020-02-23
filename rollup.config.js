@@ -19,13 +19,8 @@ export default {
     babel({
       extensions: [".ts", ".tsx"],
       exclude: /node_modules/,
-      babelrc: false,
-      runtimeHelpers: false,
-      presets: [
-        "@babel/preset-env",
-        "@babel/preset-react",
-        "@babel/preset-typescript"
-      ]
+      babelrc: true,
+      runtimeHelpers: false
     }),
     resolve({
       extensions: [".js", ".ts", ".tsx"]
