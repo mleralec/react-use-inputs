@@ -27,6 +27,15 @@ declare type useRadioType = (props: {
 
 export declare const useRadio: useRadioType;
 
+declare type RadioGroupProps = {
+  value: string;
+  name?: string | undefined;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  children: JSX.Element | JSX.Element[] | any;
+};
+
+export declare const RadioGroup: (props: RadioGroupProps) => any;
+
 declare type useSelectType = (props: {
   state: string;
   id?: string;

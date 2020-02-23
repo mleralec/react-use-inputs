@@ -5,9 +5,9 @@ Set of hooks to manage your inputs.
 ## Install
 
 ```bash
-yarn add react react-use-inputs
+yarn add react-use-inputs
 # or
-npm i react react-use-inputs
+npm i react-use-inputs
 ```
 
 ---
