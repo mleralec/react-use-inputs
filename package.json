@@ -1,0 +1,44 @@
+{
+  "name": "react-use-inputs",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/react": "^16.9.20",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "typescript": "^3.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mleralec/react-use-inputs"
+  },
+  "bugs": {
+    "url": "https://github.com/mleralec/react-use-inputs/issues"
+  },
+  "homepage": "https://github.com/mleralec/react-use-inputs#readme",
+  "author": "mleralec",
+  "keywords": [
+    "react",
+    "hooks",
+    "use",
+    "inputs",
+    "form"
+  ]
+}
