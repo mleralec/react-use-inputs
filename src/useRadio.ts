@@ -34,18 +34,31 @@ type RadioGroupProps = {
   children: JSX.Element | JSX.Element[] | any;
 };
 
-const RadioGroup = ({ value, name, onChange, children }: RadioGroupProps) => {
-  return React.Children.map(children, child => {
-    if (child.type === "input") {
-      return React.cloneElement(child, {
-        type: "radio",
-        checked: value === child.props.value,
-        name,
-        onChange
-      });
-    }
-    return child;
+const parseChildrens = (child: any, props: any): any => {
+  if (child.type === "input") {
+    return React.cloneElement(child, {
+      type: "radio",
+      checked: props.value === child.props.value,
+      name: props.name,
+      onChange: props.onChange
+    });
+  }
+
+  if (child.props && child.props.children) {
+    return React.cloneElement(child, child.props, [
+      ...React.Children.map(child.props.children, c => parseChildrens(c, props))
+    ]);
+  }
+
+  return child;
+};
+
+const RadioGroup = ({ children, ...props }: RadioGroupProps) => {
+  const childrens = React.Children.map(children, child => {
+    return parseChildrens(child, props);
   });
+
+  return childrens;
 };
 
 export { useRadio, RadioGroup };

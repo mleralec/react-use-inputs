@@ -1,5 +1,9 @@
 # Change Log
 
+### 1.0.3 (2020-02-24)
+
+- Fixed search inputs in every children of RadioGroup (recursive)
+
 ### 1.0.2 (2020-02-23)
 
 - Fixed onChange prop can receive string on useRadio/useSelect/useTextInput
