@@ -2,6 +2,7 @@ import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
+import copy from "rollup-plugin-copy";
 
 export default {
   input: "src/index.ts",
@@ -9,10 +10,10 @@ export default {
     file: "dist/index.js",
     name: "index",
     globals: {
-      react: "React"
+      react: "React",
     },
     format: "cjs",
-    exports: "named"
+    exports: "named",
   },
   plugins: [
     commonjs({ include: /node_modules/ }),
@@ -20,12 +21,15 @@ export default {
       extensions: [".ts", ".tsx"],
       exclude: /node_modules/,
       babelrc: true,
-      runtimeHelpers: false
+      runtimeHelpers: false,
     }),
     resolve({
-      extensions: [".js", ".ts", ".tsx"]
+      extensions: [".js", ".ts", ".tsx"],
     }),
-    terser()
+    copy({
+      targets: [{ src: "index.d.ts", dest: "dist" }],
+    }),
+    terser(),
   ],
-  external: ["react"]
+  external: ["react"],
 };
