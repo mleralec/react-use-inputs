@@ -22,6 +22,11 @@ export default {
       exclude: /node_modules/,
       babelrc: true,
       runtimeHelpers: false,
+      presets: [
+        "@babel/preset-env",
+        "@babel/preset-react",
+        "@babel/preset-typescript",
+      ],
     }),
     resolve({
       extensions: [".js", ".ts", ".tsx"],

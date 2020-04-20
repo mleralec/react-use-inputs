@@ -1,5 +1,11 @@
 # Change Log
 
+### 1.1.0 (2020-04-20)
+
+- Add some tests
+- Update README.md
+- Add licence file
+
 ### 1.0.3 (2020-02-24)
 
 - Fixed search inputs in every children of RadioGroup (recursive)
