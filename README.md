@@ -35,29 +35,20 @@ import { useCheckbox } from 'react-use-inputs'
 #### Access value
 
 ```jsx
-import { useCheckbox } from 'react-use-inputs'
-
-() => {
-  const checkbox = useCheckbox({ state: true });
-  const value = checkbox.checked;
-  return <input {...checkbox}>;
-}
+const checkbox = useCheckbox({ state: true });
+const value = checkbox.checked;
 ```
 
 #### Trigger manually
 
 ```jsx
-import { useCheckbox } from 'react-use-inputs'
-
-() => {
-  const checkbox = useCheckbox({ state: true });
-  return (
-    <>
-      <input {...checkbox}>
-      <button type="button" onClick={checkbox.onChange}>Trigger</button>
-    </>
-  );
-}
+const checkbox = useCheckbox({ state: true });
+return (
+  <>
+    <input {...checkbox}>
+    <button type="button" onClick={checkbox.onChange}>Trigger</button>
+  </>
+);
 ```
 
 #### Options
@@ -97,12 +88,16 @@ import { useRadio, RadioGroup } from "react-use-inputs";
 #### Access value
 
 ```jsx
-import { useRadio, RadioGroup } from "react-use-inputs";
+const radio = useRadio({ state: "B", name: "test" });
+const value = radio.value;
+```
 
-() => {
-  const radio = useRadio({ state: "B", name: "test" });
-  const value = radio.value;
-  return (
+#### Trigger manually
+
+```jsx
+const radio = useRadio({ state: "B", name: "test" });
+return (
+  <>
     <RadioGroup {...radio}>
       <label htmlFor="A">A</label>
       <input value="A" id="A" />
@@ -110,32 +105,11 @@ import { useRadio, RadioGroup } from "react-use-inputs";
       <label htmlFor="B">B</label>
       <input value="B" id="B" />
     </RadioGroup>
-  );
-};
-```
-
-#### Trigger manually
-
-```jsx
-import { useRadio, RadioGroup } from "react-use-inputs";
-
-() => {
-  const radio = useRadio({ state: "B", name: "test" });
-  return (
-    <>
-      <RadioGroup {...radio}>
-        <label htmlFor="A">A</label>
-        <input value="A" id="A" />
-
-        <label htmlFor="B">B</label>
-        <input value="B" id="B" />
-      </RadioGroup>
-      <button type="button" onClick={() => radio.onChange("B")}>
-        Reset value to "B"
-      </button>
-    </>
-  );
-};
+    <button type="button" onClick={() => radio.onChange("B")}>
+      Reset value to "B"
+    </button>
+  </>
+);
 ```
 
 #### Options
@@ -171,41 +145,26 @@ import { useSelect } from "react-use-inputs";
 #### Access value
 
 ```jsx
-import { useSelect } from "react-use-inputs";
-
-() => {
-  const select = useSelect({ state: "A" });
-  const value = select.value;
-  return (
-    <select {...select}>
-      <option value="A">A</option>
-      <option value="B">B</option>
-      <option value="C">C</option>
-    </select>
-  );
-};
+const select = useSelect({ state: "A" });
+const value = select.value;
 ```
 
 #### Trigger manually
 
 ```jsx
-import { useSelect } from "react-use-inputs";
-
-() => {
-  const select = useSelect({ state: "A" });
-  return (
-    <>
-      <select {...select}>
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
-      </select>
-      <button type="button" onClick={() => select.onChange("B")}>
-        Reset value to "B"
-      </button>
-    </>
-  );
-};
+const select = useSelect({ state: "A" });
+return (
+  <>
+    <select {...select}>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+    <button type="button" onClick={() => select.onChange("B")}>
+      Reset value to "B"
+    </button>
+  </>
+);
 ```
 
 #### Options
@@ -238,31 +197,22 @@ import { useTextInput } from "react-use-inputs";
 #### Access value
 
 ```jsx
-import { useTextInput } from "react-use-inputs";
-
-() => {
-  const textInput = useTextInput({ state: "" });
-  const value = textInput.value;
-  return <input {...textInput} />;
-};
+const textInput = useTextInput({ state: "" });
+const value = textInput.value;
 ```
 
 #### Trigger manually
 
 ```jsx
-import { useTextInput } from "react-use-inputs";
-
-() => {
-  const textInput = useTextInput({ state: "" });
-  return (
-    <>
-      <input {...textInput} />
-      <button type="button" onClick={() => textInput.onChange("")}>
-        Reset
-      </button>
-    </>
-  );
-};
+const textInput = useTextInput({ state: "" });
+return (
+  <>
+    <input {...textInput} />
+    <button type="button" onClick={() => textInput.onChange("")}>
+      Reset
+    </button>
+  </>
+);
 ```
 
 #### Options
